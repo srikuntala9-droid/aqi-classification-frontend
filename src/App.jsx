@@ -33,7 +33,7 @@ function App() {
       const apiUrl =
         mode === "classification"
           ? "https://ml-fastapi-1-gsn3.onrender.com/predict"
-          : "https://ml-fastapi-s2v5.onrender.com/cluster";
+          : "https://aqi-clustering-api.onrender.com/cluster";
 
       const response = await fetch(apiUrl, {
         method: "POST",
