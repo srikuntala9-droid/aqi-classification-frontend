@@ -8,4 +8,9 @@ export default defineConfig({
     port: 5173,
     strictPort: true,
   },
+  preview: {
+    host: '0.0.0.0',
+    port: 10000,
+    allowedHosts: ['aqi-classification-frontend.onrender.com'],
+  },
 })
