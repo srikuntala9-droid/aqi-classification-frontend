@@ -83,53 +83,88 @@ function App() {
       <main className="container">
 
         <section className="hero">
+          <div className="hero-badge">AIR QUALITY INTELLIGENCE</div>
           <h2>Air Quality Analysis</h2>
           <p>
-            Use hourly AQI observations to perform air quality
-            classification and clustering using Machine Learning.
+            Analyze hourly Air Quality Index observations using
+            Machine Learning classification and clustering models.
           </p>
+        </section>
+
+        <section className="dashboard-cards">
+          <div className="dashboard-card">
+            <span className="dashboard-icon">🌿</span>
+            <div>
+              <strong>AQI Classification</strong>
+              <small>Air quality category prediction</small>
+            </div>
+          </div>
+
+          <div className="dashboard-card">
+            <span className="dashboard-icon">📊</span>
+            <div>
+              <strong>AQI Clustering</strong>
+              <small>Air quality pattern grouping</small>
+            </div>
+          </div>
+
+          <div className="dashboard-card">
+            <span className="dashboard-icon">⏱️</span>
+            <div>
+              <strong>24 Hour Analysis</strong>
+              <small>Hourly AQI observations</small>
+            </div>
+          </div>
         </section>
 
         <div className="tabs">
           <button
-            className={mode === "classification" ? "tab active" : "tab"}
-            onClick={() => switchMode("classification")}
+            className={mode === "classification" ? "active" : ""}
+            onClick={() => {
+              setMode("classification");
+              setResult("");
+              setError("");
+            }}
           >
             🌿 Classification
           </button>
 
           <button
-            className={mode === "clustering" ? "tab active" : "tab"}
-            onClick={() => switchMode("clustering")}
+            className={mode === "clustering" ? "active" : ""}
+            onClick={() => {
+              setMode("clustering");
+              setResult("");
+              setError("");
+            }}
           >
             📊 Clustering
           </button>
         </div>
 
-        <section className="card">
+        <section className="card prediction-card">
+          <div className="section-heading">
+            <div>
+              <span className="section-label">MACHINE LEARNING</span>
+              <h2>
+                {mode === "classification"
+                  ? "AQI Air Quality Classification"
+                  : "AQI Air Quality Clustering"}
+              </h2>
+              <p>
+                Enter AQI values from <strong>hour_00</strong> to{" "}
+                <strong>hour_23</strong>.
+              </p>
+            </div>
+          </div>
 
-          <h2>
-            {mode === "classification"
-              ? "AQI Air Quality Classification"
-              : "AQI Clustering"}
-          </h2>
-
-          <p className="help">
-            Enter AQI values from hour_00 to hour_23.
-          </p>
-
-          <div className="grid">
+          <div className="input-grid">
             {hours.map((hour) => (
               <div className="input-group" key={hour}>
                 <label>{hour}</label>
-
                 <input
                   type="number"
-                  min="0"
                   value={values[hour]}
-                  onChange={(e) =>
-                    handleChange(hour, e.target.value)
-                  }
+                  onChange={(e) => handleChange(hour, e.target.value)}
                   placeholder="AQI"
                 />
               </div>
@@ -144,56 +179,39 @@ function App() {
             {loading
               ? "Processing..."
               : mode === "classification"
-              ? "Predict AQI Category"
-              : "Find AQI Cluster"}
+              ? "Predict AQI Classification"
+              : "Predict AQI Cluster"}
           </button>
 
           {result && (
             <div className="result">
-              <span>
+              <h3>
                 {mode === "classification"
-                  ? "AQI Classification"
-                  : "AQI Cluster"}
-              </span>
-
-              <strong>{result}</strong>
+                  ? "AQI Classification Result"
+                  : "AQI Clustering Result"}
+              </h3>
+              <p>{result}</p>
             </div>
           )}
 
-          {error && (
-            <div className="error">
-              {error}
-            </div>
-          )}
-
+          {error && <div className="error">{error}</div>}
         </section>
 
         <section className="info">
-
-          <div>
-            <h3>🌿 Classification</h3>
-            <p>Random Forest Classification</p>
-          </div>
-
-          <div>
-            <h3>📊 Clustering</h3>
-            <p>K-Means Clustering • 2 Clusters</p>
-          </div>
-
-          <div>
-            <h3>⏱️ Input Features</h3>
-            <p>24 hourly AQI observations</p>
-          </div>
-
+          <h3>About this AQI Model</h3>
+          <p>
+            This application uses hourly AQI observations to identify
+            air-quality categories and discover similar air-quality
+            patterns using Machine Learning.
+          </p>
         </section>
 
-      </main>
+        <footer className="help">
+          <strong>AQI Air Quality ML Application</strong>
+          <span>Classification &amp; Clustering • Machine Learning Project</span>
+        </footer>
 
-      <footer>
-        <p>AQI ML Project • Classification & Clustering</p>
-      </footer>
+      </main>
     </div>
   );
 }
-
-export default App;
