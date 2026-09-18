@@ -32,7 +32,7 @@ function App() {
       );
 
       const response = await fetch(
-        "https://aqi-classification.onrender.com/predict",
+        "https://ml-fastapi-1-gsn3.onrender.com/predict",
         {
           method: "POST",
           headers: {
