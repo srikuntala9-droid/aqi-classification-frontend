@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+const styles = "";
 const CLASSIFICATION_API =
   "https://aqi-classification.onrender.com/predict";
 
