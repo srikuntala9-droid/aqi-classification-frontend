@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const CLASSIFICATION_API =
-  "https://aqi-classification.onrender.com/predict";
+  "https://ml-fastapi-1-gsn3.onrender.com/predict";
 
 const CLUSTERING_API =
   "https://aqi-clustering-api.onrender.com/cluster";
