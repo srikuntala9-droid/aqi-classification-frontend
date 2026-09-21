@@ -1005,15 +1005,14 @@ button:disabled {
 
   margin-bottom: 8px;
 }
-
 .welcome-section p,
 .page-intro p {
   color: var(--text-secondary);
 
   font-size: 12px;
 
-  line
-  }
+  line-height: 1.6;
+}
 
 .page-intro {
   margin-bottom: 30px;
