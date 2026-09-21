@@ -4,7 +4,7 @@ const CLASSIFICATION_API =
   "https://aqi-classification.onrender.com/predict";
 
 const CLUSTERING_API =
-  "https://ml-fastapi-s2v5.onrender.com/cluster";
+  "https://aqi-clustering-api.onrender.com/cluster";
 
 const DEMO_USER = {
   email: "admin@aqiplatform.com",
